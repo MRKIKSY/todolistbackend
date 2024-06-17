@@ -16,9 +16,10 @@ app.use(cors({
 app.use(express.json());
 
 // Connect to your MongoDB database (replace with your database URL)
-mongoose.connect('mongodb+srv://kiksymyguy:Michealanike123@cluster0.78vjdgj.mongodb.net/todo')
+mongoose.connect('mongodb+srv://kiksymyguy:Michealanike123@cluster0.78vjdgj.mongodb.net/todo?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
+
 
 // Get saved tasks from the database
 app.get("/getTodoList", (req, res) => {
