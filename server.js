@@ -6,7 +6,13 @@ const cors = require('cors')
 const TodoModel = require("./models/todoList")
 
 var app = express();
-app.use(cors());
+app.use(cors({
+    origin: ["https://todolistfrontend-mxac.onrender.com",
+     "http://localhost:5173","http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+
 app.use(express.json());
 
 // Connect to your MongoDB database (replace with your database URL)
